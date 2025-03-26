@@ -1,0 +1,21 @@
+[furuyama.nobuyuki@Ren-01-0531718 ~]$ history
+    1  qmk setup
+    2  qmk compile -kb lily58 -km default
+    3  qmk new-keymap -kb lily58
+    4  qmk new-keymap -kb lily58
+    5  qmk help
+    6  qmk config user.keyboard=lily58\keymaps\win_lily58
+    7  qmk compile
+    8  qmk compile -kb lily58\keymaps\win_lily58
+    9  qmk compile -kb win_lily58
+   10  qmk compile -kb lily58keymapswin_lily58
+   11  qmk compile -kb lily58/keymaps/win_lily58
+   12  qmk compile -kb lily58 -km win_lily58
+   13  qmk compile -kb lily58 -km win_lily58
+   14  qmk compile -kb lily58 -km win_lily58
+   15  qmk compile -kb lily58 -km win_lily58
+   16  qmk compile -kb lily58 -km win_lily58
+   17  history
+
+   [furuyama.nobuyuki@Ren-01-0531718 ~]$ qmk flash -kb lily58 -km win_lily58
+   
