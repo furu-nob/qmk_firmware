@@ -18,4 +18,40 @@
    17  history
 
    [furuyama.nobuyuki@Ren-01-0531718 ~]$ qmk flash -kb lily58 -km win_lily58
-   
+
+
+
+以降の運用
+(A) 自分のキーマップを編集・プッシュ
+git add keyboards/<keyboard_name>/keymaps/<your_keymap>/
+git commit -m "Update my custom keymap"
+git push origin master
+
+(B) 公式 QMK の更新を取り込む
+QMK Firmware は頻繁に更新されるので、定期的に同期する。
+git fetch upstream
+git merge upstream/master  # または upstream/develop
+git push origin master
+
+
+
+git remote -v
+
+
+
+git fetch upstream
+
+
+QMK MSYS
+qmk setup furu-nob/qmk_firmware
+
+
+qmk setup furu-nob/qmk_firmware --branch <branch_name> 
+#   -b BRANCH, --branch BRANCH The branch to clone. Default: master
+
+cd <qmk_firmwareフォルダ>
+git remote add upstream https://github.com/qmk/qmk_firmware
+git fetch --all
+
+git merge upstream/master
+make git-submodule
