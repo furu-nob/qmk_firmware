@@ -155,6 +155,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 // Combo settings
+// 左Winキー + 方向キーとbackspaceでhome,end,pageup,pagedown,deleteを押す
 const uint16_t PROGMEM combo_home[] = {KC_LGUI, KC_LEFT, COMBO_END};
 const uint16_t PROGMEM combo_end[] = {KC_LGUI, KC_RIGHT, COMBO_END};
 const uint16_t PROGMEM combo_page_up[] = {KC_LGUI, KC_UP, COMBO_END};
