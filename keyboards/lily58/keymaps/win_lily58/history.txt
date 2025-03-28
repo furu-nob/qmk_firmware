@@ -55,3 +55,6 @@ git fetch --all
 
 git merge upstream/master
 make git-submodule
+
+
+git pull origin masterとは、「ローカルリポジトリの状態を追跡ブランチであるorigin/masterとかにコピーしてきて(git fetch)、masterブランチの追跡ブランチ(origin/master)をローカルのmasterブランチにマージしてきて！」
