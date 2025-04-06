@@ -1,4 +1,5 @@
 #include QMK_KEYBOARD_H
+#include "keymap_japanese.h"
 #include "jtu_custom_keycodes.h"
 
 
@@ -52,19 +53,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_LOWER] = LAYOUT(
   _______, _______, _______, _______, _______, _______,                   _______, _______, _______,_______, _______, _______,
   KC_ESC,   KC_1,   JU_2,    KC_3,    KC_4,    KC_5,                     JU_6,    JU_7,    JU_8,    JU_9,    JU_0,    JU_GRV,
-  JU_GRV, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                   KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_TILD,
-  _______, _______, _______, _______, _______, _______, _______, _______, XXXXXXX, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE,
+  JU_GRV, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                   KC_CIRC, KC_AMPR, KC_ASTR, JP_LPRN, JP_RPRN, KC_TILD,
+  _______, _______, _______, _______, _______, _______, _______, _______, XXXXXXX, KC_UNDS, KC_PLUS, JP_LCBR, JP_RCBR, JP_PIPE,
                              _______, _______, _______, _______, _______,  _______, _______, _______
 ),
 /* RAISE
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |   `  |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  |      |
+ * | tab  |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |-------.    ,-------| Left | Down |  Up  |Right | Del  |      |
+ * | Ctrl |  F1  |  F2  |  F3  |  F4  |  F5  |-------.    ,-------| Left | Down |  Up  |Right | Del  |      |
  * |------+------+------+------+------+------|   [   |    |    ]  |------+------+------+------+------+------|
- * |  F7  |  F8  |  F9  | F10  | F11  | F12  |-------|    |-------|   +  |   -  |   =  |   [  |   ]  |   \  |
+ * | Shift|  F6  |  F7  | F8   | F9   | F10  |-------|    |-------|   +  |   -  |   =  |   [  |   ]  |   \  |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *                   | LAlt | LGUI |LOWER | /Space  /       \Enter \  |RAISE |BackSP| RGUI |
  *                   |      |      |      |/       /         \      \ |      |      |      |
@@ -73,9 +74,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_RAISE] = LAYOUT(
   _______, _______, _______, _______, _______, _______,                     _______, _______, _______, _______, _______, _______,
-  JU_GRV,  KC_1,    JU_2,    KC_3,    KC_4,    KC_5,                        JU_6,    JU_7,    JU_8,    JU_9,    JU_0,    _______,
-  KC_F1,  KC_F2,    KC_F3,   KC_F4,   KC_F5,   KC_F6,                       KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_DEL, XXXXXXX,
-  KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,   _______, _______,  KC_PLUS, JU_MINS, JU_EQL,  JU_LBRC, JU_RBRC, JU_BSLS,
+  _______,  KC_1,    JU_2,    KC_3,    KC_4,    KC_5,                        JU_6,    JU_7,    JU_8,    JU_9,    JU_0,    _______,
+  _______,  KC_F1,    KC_F2,   KC_F3,   KC_F4,   KC_F5,                       KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_DEL, XXXXXXX,
+  _______,   KC_F6,   KC_F7,   KC_F8,  KC_F9,  KC_F10,   _______, _______,  KC_PLUS, JU_MINS, JU_EQL,  JU_LBRC, JU_RBRC, JP_BSLS,
                              _______, _______, _______,  _______, _______,  _______, _______, _______
 ),
 /* ADJUST
@@ -84,7 +85,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |      |      |      |      |      |      |                    |      |      |      |      | BRI+ | VAL+ |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      |      |      |      |-------.    ,-------|      |      |      |      | BRI- | VAL- |
+ * |      |      |      |      |      |      |-------.    ,-------| home | p_up |p_down| end  | BRI- | VAL- |
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
  * |      |      |      |      |      |      |-------|    |-------|      |      |      |      | PSCR | MUTE |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
@@ -95,7 +96,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_ADJUST] = LAYOUT(
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BRIU, KC_VOLU,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BRID, KC_VOLD,
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   KC_HOME, KC_PGUP, KC_PGDN, KC_END,  KC_BRID, KC_VOLD,
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PSCR, KC_MUTE,
                              _______, _______, _______, _______, _______,  _______, _______, _______
   )
@@ -156,18 +157,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
 
-// Combo settings
-// 左Winキー + 方向キーとbackspaceでhome,end,pageup,pagedown,deleteを押す
-const uint16_t PROGMEM combo_home[] = {KC_LGUI, KC_LEFT, COMBO_END};
-const uint16_t PROGMEM combo_end[] = {KC_LGUI, KC_RIGHT, COMBO_END};
-const uint16_t PROGMEM combo_page_up[] = {KC_LGUI, KC_UP, COMBO_END};
-const uint16_t PROGMEM combo_page_down[] = {KC_LGUI, KC_DOWN, COMBO_END};
-const uint16_t PROGMEM combo_delete[] = {KC_LGUI, KC_BSPC, COMBO_END};
-combo_t key_combos[] = {
-      COMBO(combo_home, KC_HOME),
-      COMBO(combo_end, KC_END),
-      COMBO(combo_page_up, KC_PGUP),
-      COMBO(combo_page_down, KC_PGDN),
-      COMBO(combo_delete, KC_DEL),
-};
+//// Combo settings
+//// 左Winキー + 方向キーとbackspaceでhome,end,pageup,pagedown,deleteを押す
+//const uint16_t PROGMEM combo_home[] = {KC_LGUI, KC_LEFT, COMBO_END};
+//const uint16_t PROGMEM combo_end[] = {KC_LGUI, KC_RIGHT, COMBO_END};
+//const uint16_t PROGMEM combo_page_up[] = {KC_LGUI, KC_UP, COMBO_END};
+//const uint16_t PROGMEM combo_page_down[] = {KC_LGUI, KC_DOWN, COMBO_END};
+//const uint16_t PROGMEM combo_delete[] = {KC_LGUI, KC_BSPC, COMBO_END};
+//combo_t key_combos[] = {
+//      COMBO(combo_home, KC_HOME),
+//      COMBO(combo_end, KC_END),
+//      COMBO(combo_page_up, KC_PGUP),
+//      COMBO(combo_page_down, KC_PGDN),
+//      COMBO(combo_delete, KC_DEL),
+//};
 
