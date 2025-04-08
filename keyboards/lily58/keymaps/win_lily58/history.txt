@@ -55,6 +55,27 @@ git fetch --all
 
 git merge upstream/master
 make git-submodule
-
+魏t
 
 git pull origin masterとは、「ローカルリポジトリの状態を追跡ブランチであるorigin/masterとかにコピーしてきて(git fetch)、masterブランチの追跡ブランチ(origin/master)をローカルのmasterブランチにマージしてきて！」
+
+
+ステージ済みの差分を見るコマンド（git add したあと）
+git diff --staged
+
+よく使う diff の比較
+目的
+コマンド
+内容
+
+作業ツリーとステージの差分
+git diff
+未ステージの変更
+
+ステージとHEAD（直前コミット）の差分
+git diff --cached / --staged
+ステージされた変更
+
+作業ツリーとHEADの全体の差分
+git diff HEAD
+すべての変更
