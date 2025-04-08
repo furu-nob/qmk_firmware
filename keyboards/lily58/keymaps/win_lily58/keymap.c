@@ -31,7 +31,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_ESC,   KC_1,   JU_2,    KC_3,    KC_4,    KC_5,                     JU_6,    JU_7,    JU_8,    JU_9,    JU_0,    JU_GRV,
   KC_TAB,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    JU_MINS,
   KC_LCTL,  KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                     KC_H,    KC_J,    KC_K,    KC_L,    JU_SCLN, JU_QUOT,
-  KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, JU_LBRC,  JU_RBRC,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,  KC_RSFT,
+  KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, JP_LBRC,  JP_RBRC,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,  KC_RSFT,
                         KC_LGUI, KC_LALT, LT(_LOWER, KC_INT5), KC_SPC, KC_ENT, LT(_RAISE, KC_INT4), KC_BSPC, KC_RGUI
 ),
 
@@ -70,13 +70,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                   | LAlt | LGUI |LOWER | /Space  /       \Enter \  |RAISE |BackSP| RGUI |
  *                   |      |      |      |/       /         \      \ |      |      |      |
  *                   `----------------------------'           '------''--------------------'
- */
-
-[_RAISE] = LAYOUT(
+ *
+*/
+ [_RAISE] = LAYOUT(
   _______, _______, _______, _______, _______, _______,                     _______, _______, _______, _______, _______, _______,
   _______,  KC_1,    JU_2,    KC_3,    KC_4,    KC_5,                        JU_6,    JU_7,    JU_8,    JU_9,    JU_0,    _______,
   _______,  KC_F1,    KC_F2,   KC_F3,   KC_F4,   KC_F5,                       KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_DEL, XXXXXXX,
-  _______,   KC_F6,   KC_F7,   KC_F8,  KC_F9,  KC_F10,   _______, _______,  KC_PLUS, JU_MINS, JU_EQL,  JU_LBRC, JU_RBRC, JP_BSLS,
+  _______,   KC_F6,   KC_F7,   KC_F8,  KC_F9,  KC_F10,   _______, _______,  JP_PLUS, JU_MINS, JP_EQL,  JP_LBRC, JP_RBRC, JP_BSLS,
                              _______, _______, _______,  _______, _______,  _______, _______, _______
 ),
 /* ADJUST
@@ -155,6 +155,30 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     // set_timelog();
   }
   return true;
+}
+
+// // 方向キーのホールドをすぐ有効にしたいので追加。方向キーとdelete。
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LT(1, KC_LEFT):
+            // Immediately select the hold action when another key is pressed.
+            return true;
+        case LT(1, KC_DOWN):
+            // Immediately select the hold action when another key is pressed.
+            return true;
+        case LT(1, KC_UP):
+            // Immediately select the hold action when another key is pressed.
+            return true;
+        case LT(1, KC_RGHT):
+            // Immediately select the hold action when another key is pressed.
+            return true;
+        case LT(1, KC_DEL):
+            // Immediately select the hold action when another key is pressed.
+            return true;
+        default:
+            // Do not select the hold action when another key is pressed.
+            return false;
+    }
 }
 
 //// Combo settings

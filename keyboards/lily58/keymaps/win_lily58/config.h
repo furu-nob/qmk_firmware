@@ -21,8 +21,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #pragma once
 
 #define QUICK_TAP_TERM 0
-//#define TAPPING_TERM 200
-#define TAPPING_TERM 100
+// #define TAPPING_TERM 200
+#define TAPPING_TERM 200
 
 #undef RGBLIGHT_LED_COUNT
 #define RGBLIGHT_EFFECT_BREATHING
@@ -40,6 +40,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGBLIGHT_HUE_STEP 10
 #define RGBLIGHT_SAT_STEP 17
 #define RGBLIGHT_VAL_STEP 17
+
+ // 方向キーのホールドをすぐ有効にしたいので追加
+#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
+
 
 // Underglow
 /*
