@@ -79,3 +79,8 @@ git diff --cached / --staged
 作業ツリーとHEADの全体の差分
 git diff HEAD
 すべての変更
+
+
+
+# 自分だけのコミットログ表示
+git log --author=furu-nob
